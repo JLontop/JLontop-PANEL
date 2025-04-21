@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel Ikonik</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      text-align: center;
+      display: block;
+      max-width: 400px;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      width: 80%;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #6a82fb;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #a18cd1;
+    }
+    .admin-link {
+      margin-top: 15px;
+      font-size: 13px;
+      cursor: pointer;
+      color: #ccc;
+      text-decoration: underline;
+    }
+    #adminPrompt {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #2c2f4a;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+      z-index: 1000;
+      color: white;
+    }
+    #adminPrompt input {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      width: 100%;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- PAGE PRINCIPALE -->
+<div class="container">
+  <h2>Bienvenue sur le Panel Ikonik</h2>
+  <button onclick="window.open('https://www.youtube.com/@JLshoponTop', '_blank')">Accéder à YouTube</button>
+  <button onclick="window.open('https://gofile.io/d/kXEGDC', '_blank')">Ikonik Panel</button>
+</div>
+
+<!-- Pop-up de mot de passe admin -->
+<div id="adminPrompt">
+  <h3>Mot de passe Admin</h3>
+  <input type="password" id="adminPassInput" placeholder="Mot de passe..."><br>
+  <button onclick="checkAdminPassword()">Valider</button>
+  <button onclick="closeAdminPrompt()">Annuler</button>
+</div>
+
+<script>
+  // Fonction pour afficher les différentes sections
+  function showSection(sectionId) {
+    document.querySelectorAll(".container").forEach(c => c.style.display = "none");
+    document.getElementById(sectionId).style.display = "block";
+  }
+
+  // Pop-up de mot de passe Admin
+  function promptAdmin() {
+    document.getElementById("adminPrompt").style.display = "block";
+    document.getElementById("adminPassInput").value = "";
+  }
+
+  function closeAdminPrompt() {
+    document.getElementById("adminPrompt").style.display = "none";
+  }
+
+  function checkAdminPassword() {
+    const mdp = document.getElementById("adminPassInput").value;
+    if (mdp === "jlontop08") {
+      closeAdminPrompt();
+      alert("Accès Admin confirmé !");
+    } else {
+      alert("Mot de passe incorrect !");
+    }
+  }
+
+  // Pas de générateur de clé maintenant, donc il n'y a plus de logique liée aux clés.
+</script>
+
+</body>
+</html>
